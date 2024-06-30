@@ -1,0 +1,43 @@
+.detai-quiz-content {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  .left-content {
+    width: 70%;
+    border: 2px solid rgb(226, 222, 222);
+    padding: 10px 10px;
+    border-radius: 10px;
+  }
+
+  .right-content {
+    width: 30%;
+    border: 2px solid rgb(226, 222, 222);
+    border-radius: 10px;
+  }
+  .title {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  .footter {
+    justify-content: center;
+    gap: 10px;
+    display: flex;
+  }
+  .answer {
+    margin-left: 50px;
+  }
+  .title-quetion {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .list_quiz {
+    .img-quiz {
+      text-align: center;
+    }
+    img {
+      width: 30%;
+    }
+  }
+}

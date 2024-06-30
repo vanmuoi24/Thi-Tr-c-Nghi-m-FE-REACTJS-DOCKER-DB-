@@ -1,0 +1,23 @@
+.manage-user-container {
+  padding: 10px 10px 10px 10px;
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    &:hover {
+      background-color: rgb(0, 52, 148);
+      color: white;
+    }
+  }
+  i {
+    font-size: 1.3rem;
+  }
+  table {
+    margin-top: 20px;
+  }
+  .group-btn {
+    display: flex;
+    gap: 10px;
+  }
+}

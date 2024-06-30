@@ -1,0 +1,27 @@
+.login-container {
+  .btn1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    &:disabled {
+      cursor: no-drop;
+    }
+  }
+
+  .btn1 i {
+    margin-right: 7px;
+    top: 2px;
+    animation: spin 1s infinite linear;
+  }
+
+  @keyframes spin {
+    from {
+      transform: scale(1) rotate(0deg);
+    }
+    to {
+      transform: scale(1) rotate(360deg);
+    }
+  }
+}
