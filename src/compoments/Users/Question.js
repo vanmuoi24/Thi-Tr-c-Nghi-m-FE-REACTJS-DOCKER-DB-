@@ -1,6 +1,6 @@
 import _ from "lodash";
 const Question = (props) => {
-  const { data, index } = props;
+  const { data, index, disLableFish, showAnswer } = props;
 
   if (_.isEmpty(data)) {
     return <></>;
@@ -9,6 +9,7 @@ const Question = (props) => {
   const handleOnChange = (event, aId, qId) => {
     props.handleCheckBox(aId, qId);
   };
+  console.log(data);
   return (
     <div className="list_quiz">
       {data && data.image ? (
@@ -34,8 +35,21 @@ const Question = (props) => {
                     onChange={(event) =>
                       handleOnChange(event, item.id, data.questionId)
                     }
+                    disabled={disLableFish}
                   />
+
                   <label className="form-check-label">{item.description}</label>
+
+                  {showAnswer === true && (
+                    <>
+                      {item.isChecked === true && item.isCorrect === false && (
+                        <i className="fa-solid fa-x false"></i>
+                      )}
+                      {item.isCorrect === true && (
+                        <i className="fa-solid fa-check true"></i>
+                      )}
+                    </>
+                  )}
                 </div>
               </div>
             );

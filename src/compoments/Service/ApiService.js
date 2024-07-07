@@ -32,10 +32,15 @@ const deleteUser = (id) => {
 const getPageListUser = (page, limit) => {
   return instance.get(`api/v1/participant?page=${page}&limit=${limit}`);
 };
+
+const getTotalDashBoard = () => {
+  return instance.get("api/v1/overview");
+};
 export {
   postCretaeNewUser,
   getAllUser,
   putUpdateUser,
   deleteUser,
   getPageListUser,
+  getTotalDashBoard,
 };

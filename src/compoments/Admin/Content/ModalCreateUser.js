@@ -13,7 +13,7 @@ const ModalCreateUser = (props) => {
   const [email, setemail] = useState("");
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
-  const [role, setrole] = useState("User");
+  const [role, setrole] = useState("USER");
 
   const [image, setImage] = useState(null);
   const [images, setImages] = useState(null);
@@ -109,8 +109,8 @@ const ModalCreateUser = (props) => {
                   onChange={(event) => setrole(event.target.value)}
                   value={role}
                 >
-                  <option>User</option>
-                  <option>Admin</option>
+                  <option value={"USER"}>User</option>
+                  <option value={"ADMIN"}>Admin</option>
                 </Form.Select>
               </Form.Group>
             </Row>

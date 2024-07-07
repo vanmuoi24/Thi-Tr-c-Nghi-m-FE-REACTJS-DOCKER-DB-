@@ -19,6 +19,10 @@ import Login from "./compoments/Auth/Login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DetailQuiz from "./compoments/Users/DetailQuiz";
+import ManagerQuiz from "./compoments/Admin/Content/Quiz/ManagerQuiz";
+import ManageQuestion from "./compoments/Admin/Content/Question/ManageQuestion";
+import PrivateRouter from "./Routers/PrivateRouter";
+
 const RouterApp = () => {
   return (
     <>
@@ -26,12 +30,28 @@ const RouterApp = () => {
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />}></Route>
-          <Route path="users" element={<User />}></Route>
+          <Route
+            path="users"
+            element={
+              <PrivateRouter>
+                <User />
+              </PrivateRouter>
+            }
+          ></Route>
         </Route>
         <Route path="quiz/:id" element={<DetailQuiz />}></Route>
-        <Route path="admins" element={<Admin />}>
+        <Route
+          path="admins"
+          element={
+            <PrivateRouter>
+              <Admin />
+            </PrivateRouter>
+          }
+        >
           <Route index element={<DashBoard />}></Route>
           <Route path="manage-user" element={<ManageUser />}></Route>
+          <Route path="manage-quiz" element={<ManagerQuiz />}></Route>
+          <Route path="manage-question" element={<ManageQuestion />}></Route>
         </Route>
 
         <Route path="login" element={<Login />}></Route>

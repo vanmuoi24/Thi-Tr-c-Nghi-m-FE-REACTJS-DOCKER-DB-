@@ -1,7 +1,7 @@
 import Sibar from "./Sibar";
 import "./Admin.scss";
 import { Outlet } from "react-router-dom";
-
+import PerfectScrollbar from "react-perfect-scrollbar";
 const Admin = () => {
   return (
     <div className="admin-container">
@@ -9,8 +9,12 @@ const Admin = () => {
         {" "}
         <Sibar />
       </div>
+
       <div className="admin-content">
-        <Outlet />
+        <PerfectScrollbar>
+          {" "}
+          <Outlet />
+        </PerfectScrollbar>
       </div>
     </div>
   );

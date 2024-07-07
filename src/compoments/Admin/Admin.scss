@@ -1,5 +1,6 @@
 .admin-container {
   display: flex;
+
   min-height: 100vh;
   width: 100%;
   .sideber-container {
@@ -70,6 +71,7 @@
     }
 
     .sidebar-logo {
+      color: white;
       margin: auto 0;
     }
 
@@ -110,6 +112,7 @@
 
     .sidebar-item {
       position: relative;
+      padding-top: 20px;
     }
 
     #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
@@ -132,18 +135,18 @@
       opacity: 1;
     }
 
-    #sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
-      border: solid;
-      border-width: 0 0.075rem 0.075rem 0;
-      content: "";
-      display: inline-block;
-      padding: 2px;
-      position: absolute;
-      right: 1.5rem;
-      top: 1.4rem;
-      transform: rotate(-135deg);
-      transition: all 0.2s ease-out;
-    }
+    // #sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    //   border: solid;
+    //   border-width: 0 0.075rem 0.075rem 0;
+    //   content: "";
+    //   display: inline-block;
+    //   padding: 2px;
+    //   position: absolute;
+    //   right: 1.5rem;
+    //   top: 1.4rem;
+    //   transform: rotate(-135deg);
+    //   transition: all 0.2s ease-out;
+    // }
 
     #sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
       transform: rotate(45deg);
@@ -152,5 +155,6 @@
   }
   .admin-content {
     width: 100%;
+    height: calc(100vh - 10px);
   }
 }

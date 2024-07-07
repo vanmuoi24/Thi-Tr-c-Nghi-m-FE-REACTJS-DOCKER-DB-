@@ -2,11 +2,20 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { logOut } from "../Service/LoginService";
+import { toast } from "react-toastify";
+import { ResetStateLogOut } from "../../Redux/Action/userAction";
+import Language from "../../Language/Language";
+import Profile from "./Profile/Profile";
+import { useState } from "react";
 
 function Header() {
   const account = useSelector((state) => state.user.account);
+  const [show, setShow] = useState(false);
+  let dispath = useDispatch();
+
   const isAuthenticated = useSelector(
     (state) => state.user.account.isAuthenticated
   );
@@ -14,6 +23,18 @@ function Header() {
 
   const handleLogin = () => {
     navi("/login");
+  };
+
+  const hanleLogOut = async (email, token) => {
+    let res = await logOut(account.email, account.refresh_token);
+    if (res && res.EC === 0) {
+      toast.success(res.EM);
+      navi("/login");
+      dispath(ResetStateLogOut({}));
+    }
+  };
+  const handleProfile = () => {
+    setShow(true);
   };
   return (
     <>
@@ -27,12 +48,17 @@ function Header() {
               <Link to="/" className=" nav-link ">
                 Home
               </Link>
-              <Link to="/users" className=" nav-link ">
-                Users{" "}
-              </Link>
-              <Link to="/admins" className=" nav-link ">
-                Admin
-              </Link>
+              {account.role === "ADMIN" ? (
+                <>
+                  <Link to="/admins" className=" nav-link ">
+                    Admin
+                  </Link>
+                </>
+              ) : (
+                <Link to="/users" className=" nav-link ">
+                  Users{" "}
+                </Link>
+              )}
             </Nav>
 
             <Nav>
@@ -46,14 +72,20 @@ function Header() {
                 </>
               ) : (
                 <NavDropdown title="Setting" id="basic-nav-dropdown">
-                  <NavDropdown.Item>LogOut</NavDropdown.Item>
-                  <NavDropdown.Item>Profile</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleProfile()}>
+                    Profile
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => hanleLogOut()}>
+                    LogOut
+                  </NavDropdown.Item>
                 </NavDropdown>
               )}
+              <Language />
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <Profile show={show} setShow={setShow} />
     </>
   );
 }

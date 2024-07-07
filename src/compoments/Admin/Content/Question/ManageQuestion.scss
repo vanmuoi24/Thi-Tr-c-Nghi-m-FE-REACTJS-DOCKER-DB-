@@ -1,0 +1,56 @@
+.manage-question-container {
+  padding: 15px;
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .select-quiz {
+    margin-top: 20px;
+  }
+
+  .uploadfile {
+    display: flex;
+    margin-top: 15px;
+    i {
+      cursor: pointer;
+      font-size: 2rem;
+      color: rgb(16, 174, 236);
+    }
+  }
+  .group-addDescription {
+    margin-top: 10px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+  }
+  .icon-and-file {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    .icon {
+      display: flex;
+      gap: 30px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
+  .answer {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    .checkbox {
+      text-align: center;
+    }
+
+    .icon-answer {
+      display: flex;
+      gap: 20px;
+      .icon {
+        display: flex;
+        gap: 30px;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -5,8 +5,13 @@ import Modal from "react-bootstrap/Modal";
 import _ from "lodash";
 
 const ModelResult = (props) => {
-  const { show, setShow, dataModal } = props;
+  const { show, setShow, dataModal, setShowAnswer } = props;
   const handleClose1 = () => setShow(false);
+
+  const handleShowAnswer = () => {
+    setShow(false);
+    setShowAnswer(true);
+  };
   return (
     <>
       <Modal show={show} onHide={handleClose1} backdrop="static">
@@ -18,11 +23,11 @@ const ModelResult = (props) => {
           <div>Total Correct answer : {dataModal?.DT?.countCorrect} </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose1}>
-            Close
+          <Button variant="secondary" onClick={handleShowAnswer}>
+            Show Answer
           </Button>
           <Button variant="danger" onClick={handleClose1}>
-            Delete
+            Closs
           </Button>
         </Modal.Footer>
       </Modal>

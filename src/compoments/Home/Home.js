@@ -1,43 +1,37 @@
 import React, { useState } from "react";
-import Carousel from "react-bootstrap/Carousel";
-import anh1 from "../../assets/iStock_641600572.avif";
-import anh2 from "../../assets/1.jpg";
-import anh3 from "../../assets/cach-dung-quizizz.jpg";
+
+import anh1 from "../../assets/Rectangle 6 (1).png";
+
 import { useSelector } from "react-redux";
-
+import { useTranslation, Trans } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+  let navi = useNavigate();
   const account = useSelector((state) => state.user.account);
-
+  const handleStrat = () => {
+    console.log(isAuthenticated);
+    if (isAuthenticated == true) {
+      navi("/users");
+    }
+  };
   return (
-    <div className="homepage-container">
-      <Carousel activeIndex={index} onSelect={handleSelect}>
-        <Carousel.Item>
-          <img src={anh1} alt="First slide" />
-          <Carousel.Caption>
-            <h3>Ngân Hàng Câu Hỏi</h3>
-            <p>Xin chào tất cả các bạn tới trang web của Tèn</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img src={anh2} alt="Second slide" />
-          <Carousel.Caption>
-            <h3>Ngân Hàng Câu Hỏi</h3>
-            <p>Xin chào tất cả các bạn tới trang web của Tèn</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img src={anh3} alt="Third slide" />
-          <Carousel.Caption>
-            <h3>Ngân Hàng Câu Hỏi</h3>
-            <p>Xin chào tất cả các bạn tới trang web của Tèn</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
+    <div className="homepage-container ">
+      <div className="">
+        <h3>Welcome to the multiple choice test application</h3>
+        <p>
+          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+          sint. Velit officia consequat duis enim velit mollit. Exercitation
+          veniam consequat sunt nostrud amet.
+        </p>
+        <button className="btn btn-secondary" onClick={handleStrat}>
+          Get Start{" "}
+        </button>
+      </div>
+
+      <div className="">
+        <img src={anh1}></img>
+      </div>
     </div>
   );
 };

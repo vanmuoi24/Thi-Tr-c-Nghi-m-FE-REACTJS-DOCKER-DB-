@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { getListQuiz } from "../Service/Quiz";
+import { getAllQuizAdmin, getListQuiz } from "../Service/Quiz";
 import "./ListQuiz.scss";
 import { useNavigate } from "react-router-dom";
 function ListQuiz() {

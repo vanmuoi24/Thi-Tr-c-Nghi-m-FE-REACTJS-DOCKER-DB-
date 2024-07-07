@@ -14,105 +14,44 @@ const Sibar = () => {
               <i className="lni lni-grid-alt"></i>
             </button>
             <div className="sidebar-logo">
-              <a>Admin</a>
+              <span>Admin</span>
             </div>
           </div>
           <ul className="sidebar-nav">
             <li className="sidebar-item">
-              <Link to="manage-user" className="sidebar-link">
-                <i className="lni lni-user"></i>
-                <span>Quản Lí Users</span>
+              <Link to="/admins" className="sidebar-link">
+                <i class="fa-solid fa-house"></i>
+                <span>DashBoard</span>
               </Link>
             </li>
             <li className="sidebar-item">
-              <a className="sidebar-link">
+              <Link to="manage-user" className="sidebar-link">
+                <i className="lni lni-user"></i>
+                <span>Maneger Users</span>
+              </Link>
+            </li>
+            <li className="sidebar-item">
+              <Link to="manage-quiz" className="sidebar-link">
                 <i className="lni lni-agenda"></i>
-                <span>Quản Lí Bài Quiz</span>
-              </a>
+                <span>Maneger Quiz</span>
+              </Link>
             </li>
             <li className="sidebar-item">
-              <a
-                className="sidebar-link collapsed has-dropdown"
-                data-bs-toggle="collapse"
-                data-bs-target="#auth"
-                aria-expanded="false"
-                aria-controls="auth"
-              >
+              <Link to="manage-question" className="sidebar-link">
                 <i className="lni lni-protection"></i>
-                <span>Quản Lí Câu Hỏi</span>
-              </a>
-              <ul
-                id="auth"
-                className="sidebar-dropdown list-unstyled collapse"
-                data-bs-parent="#sidebar"
-              >
-                <li className="sidebar-item">
-                  <a className="sidebar-link">Login</a>
-                </li>
-                <li className="sidebar-item">
-                  <a className="sidebar-link">Register</a>
-                </li>
-              </ul>
+                <span>Maneger Qustion</span>
+              </Link>
             </li>
+
             <li className="sidebar-item">
-              <a
-                className="sidebar-link collapsed has-dropdown"
-                data-bs-toggle="collapse"
-                data-bs-target="#multi"
-                aria-expanded="false"
-                aria-controls="multi"
-              >
-                <i className="lni lni-layout"></i>
-                <span>Multi Level</span>
-              </a>
-              <ul
-                id="multi"
-                className="sidebar-dropdown list-unstyled collapse"
-                data-bs-parent="#sidebar"
-              >
-                <li className="sidebar-item">
-                  <a
-                    className="sidebar-link collapsed"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#multi-two"
-                    aria-expanded="false"
-                    aria-controls="multi-two"
-                  >
-                    Two Links
-                  </a>
-                  <ul
-                    id="multi-two"
-                    className="sidebar-dropdown list-unstyled collapse"
-                  >
-                    <li className="sidebar-item">
-                      <a className="sidebar-link">Link 1</a>
-                    </li>
-                    <li className="sidebar-item">
-                      <a className="sidebar-link">Link 2</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li className="sidebar-item">
-              <a className="sidebar-link">
-                <i className="lni lni-popup"></i>
-                <span>Notification</span>
-              </a>
-            </li>
-            <li className="sidebar-item">
-              <a className="sidebar-link">
-                <i className="lni lni-cog"></i>
-                <span>Setting</span>
-              </a>
+              {" "}
+              <Link to="/" className="sidebar-link">
+                <i className="lni lni-exit"></i>
+                <span> Back Home</span>
+              </Link>
             </li>
           </ul>
-          <div className="sidebar-footer">
-            <a className="sidebar-link">
-              <i className="lni lni-exit"></i>
-              <span>Logout</span>
-            </a>
-          </div>
+          <div className="sidebar-footer"></div>
         </aside>
       </div>
     </>

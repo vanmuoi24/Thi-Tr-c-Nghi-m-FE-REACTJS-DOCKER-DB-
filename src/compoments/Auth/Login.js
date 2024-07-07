@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { UserLogin } from "../../Redux/Action/userAction";
 import "./Login.scss";
 import { set } from "lodash";
+import Language from "../../Language/Language";
 const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -24,20 +25,22 @@ const Login = () => {
           data,
         })
       );
-      setTimeout(() => {
+      if (data.DT.role === "USER") {
         navi("/");
-      }, 1000);
+      }
+      if (data.DT.role === "ADMIN") {
+        navi("/admins");
+      }
     }
     if (data && data.EC !== 0) {
       toast.error(data.EM);
+      setisloading(false);
     }
   };
   return (
     <div className="login-container">
       <div className="header col-4 mx-auto text-center">TypeForm</div>
-      <div className="title col-4 mx-auto text-center">
-        <span>Helle,who's this?</span>
-      </div>
+
       <div className="welcome col-4 mx-auto"></div>
       <div className="login-content col-4 mx-auto">
         <div className="mb-3">
@@ -67,6 +70,7 @@ const Login = () => {
           />
         </div>
         <Link to="forgot">forgot password?</Link>
+        <Language />
         <div className="mt-4">
           <button
             className="btn btn-primary col-12  btn1"

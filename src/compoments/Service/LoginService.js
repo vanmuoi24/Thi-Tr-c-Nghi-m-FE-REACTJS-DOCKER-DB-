@@ -8,5 +8,11 @@ const postLogin = (email, password) => {
     delay: 5000,
   });
 };
+const logOut = (email, refresh_token) => {
+  return instance.post(`api/v1/logout`, {
+    email,
+    refresh_token,
+  });
+};
 
-export { postLogin };
+export { postLogin, logOut };
